@@ -1,35 +1,34 @@
-//package com.test.laurel.testproject;
-//
-//
-//import org.junit.Assert;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.mockito.junit.MockitoJUnitRunner;
-//import org.springframework.beans.factory.annotation.Autowired;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import static org.mockito.Mockito.*;
-//
-//@RunWith(MockitoJUnitRunner.class)
-//public class PrimeSTest {
-//
-//    List<Integer> primeList1 = new ArrayList <>();
-//
-//
-//    @Autowired
-//    PrimeS primeS;
-//
-//
-//    @Test
-//    public void primenumberwhennis10() {
-//        primeList1.add(2);
-//        primeList1.add(3);
-//        primeList1.add(5);
-//        primeList1.add(7);
-//        PrimeS primeS1 = new PrimeS();
-//        when(primeS.printPrime(10)).thenReturn(primeList1);
-//        Assert.assertEquals(primeList1,primeList1);
-//    }
-//}
+package com.test.laurel.testproject;
+
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.mockito.Mockito.*;
+
+public class PrimeSTest {
+
+    List<Integer> primeList1 = Arrays.asList(2,3,5,7);
+    List<Integer> primeList2 = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19);
+
+    PrimeS primeS = new PrimeS();
+
+
+    @Test
+    public void primenumberswhenNis10() {
+        Assert.assertEquals(primeList1,PrimeS.printPrime(10));
+    }
+
+    @Test
+    public void primenumberswhenNis20() {
+        Assert.assertEquals(primeList2, PrimeS.printPrime(20));
+    }
+}
